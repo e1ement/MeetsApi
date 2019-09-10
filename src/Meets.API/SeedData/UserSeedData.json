@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1330ac39-0bf2-4222-9da6-000b1bd2b660",
+    "username": "Lynda",
+    "name": "Lynda",
+    "created": "2015-06-30T05:00:36 -03:00",
+    "lastActive": "2019-03-16T02:05:24 -03:00"
+  },
+  {
+    "id": "1ff550dc-b70d-4747-8406-66d11f052b1d",
+    "username": "Fern",
+    "name": "Fern",
+    "created": "2014-06-06T01:29:00 -04:00",
+    "lastActive": "2016-08-05T06:09:18 -03:00"
+  },
+  {
+    "id": "8fa45b08-5ac5-48c3-a68f-e4106ac0cb18",
+    "username": "Jeanine",
+    "name": "Jeanine",
+    "created": "2017-01-28T07:00:50 -03:00",
+    "lastActive": "2018-07-07T02:21:32 -03:00"
+  },
+  {
+    "id": "0d35562d-6853-49a9-9866-d418ac62eba3",
+    "username": "Curry",
+    "name": "Curry",
+    "created": "2017-10-02T10:15:10 -03:00",
+    "lastActive": "2017-12-28T11:53:43 -03:00"
+  },
+  {
+    "id": "54d4db66-7db6-4dbe-845c-f2f258da1ee0",
+    "username": "Rae",
+    "name": "Rae",
+    "created": "2014-04-06T07:40:46 -04:00",
+    "lastActive": "2018-10-25T10:35:23 -03:00"
+  },
+  {
+    "id": "d2a10ad4-6637-4053-9338-ffd673ccdc6d",
+    "username": "Elise",
+    "name": "Elise",
+    "created": "2015-10-20T11:27:12 -03:00",
+    "lastActive": "2019-01-10T04:37:43 -03:00"
+  }
+]

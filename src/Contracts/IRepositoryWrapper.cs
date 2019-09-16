@@ -5,5 +5,6 @@
         IValueRepository Value { get; }
         IAuthRepository Auth { get; }
         IUserRepository User { get; }
+        IRouteRepository Route { get; }
     }
 }

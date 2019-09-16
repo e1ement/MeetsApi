@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
 using AutoMapper;
 using Contracts;
 using Entities;
+using Entities.Helpers;
 using LoggerService;
 using Meets.API.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -78,6 +80,20 @@ namespace Meets.API.Extensions
                     }
                 });
 
+                var security = new Dictionary<string, IEnumerable<string>>
+                {
+                    {"Bearer", new string[] { }},
+                };
+
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey"
+                });
+                c.AddSecurityRequirement(security);
+
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
@@ -112,6 +128,12 @@ namespace Meets.API.Extensions
         public static void ConfigureLogActivity(this IServiceCollection services)
         {
             services.AddScoped<LogUserActivity>();
+        }
+
+        public static void ConfigureHereSettings(this IServiceCollection services, IConfiguration configuration)
+        {
+            var hereSettingsSection = configuration.GetSection("HereSettings");
+            services.Configure<HereHelper>(hereSettingsSection);
         }
     }
 }

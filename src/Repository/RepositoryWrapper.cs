@@ -9,6 +9,7 @@ namespace Repository
         private ValueRepository _value;
         private AuthRepository _auth;
         private UserRepository _user;
+        private RouteRepository _route;
 
         public RepositoryWrapper(RepositoryContext context)
         {
@@ -18,5 +19,6 @@ namespace Repository
         public IValueRepository Value => _value ?? (_value = new ValueRepository(_context));
         public IAuthRepository Auth => _auth ?? (_auth = new AuthRepository(_context));
         public IUserRepository User => _user ?? (_user = new UserRepository(_context));
+        public IRouteRepository Route => _route ?? (_route = new RouteRepository(_context));
     }
 }

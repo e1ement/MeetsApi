@@ -18,11 +18,12 @@ namespace Meets.API
             services.ConfigureSwagger();
             services.ConfigureAuthentication(Configuration);
             services.ConfigureSeedData();
+            services.ConfigureHereSettings(Configuration);
             services.ConfigureLogActivity();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options =>
                     {
-                        options.SerializerSettings.ReferenceLoopHandling = 
+                        options.SerializerSettings.ReferenceLoopHandling =
                             Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                     });
         }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using NLog;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Meets.API
 {
@@ -40,11 +41,16 @@ namespace Meets.API
             }
 
             //app.UseHttpsRedirection();
-            app.UseSwagger();
+            app.UseSwagger(c => {
+                c.RouteTemplate = "swagger/{documentName}/swagger.json";
+            });
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "FoxTrading API V1");
-                c.RoutePrefix = string.Empty;
+                c.RoutePrefix = "swagger";
+                c.DocumentTitle = "Title Documentation";
+                c.DocExpansion(DocExpansion.None);
             });
             app.ConfigureCustomExceptionMiddleware();
             seeder.SeedValues(); //TODO: Comment before publishing

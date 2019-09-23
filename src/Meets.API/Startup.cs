@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Logging;
 using NLog;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -25,7 +24,6 @@ namespace Meets.API
         {
             if (env.IsDevelopment())
             {
-                IdentityModelEventSource.ShowPII = true;
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -64,13 +62,12 @@ namespace Meets.API
             });
             app.UseStaticFiles();
             app.UseAuthentication();
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapSpaFallbackRoute(
-            //        "spa-fallback",
-            //        new { controller = "Fallback", action = "Index"});
-            //});
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapSpaFallbackRoute(
+                    "spa-fallback",
+                    new { controller = "Fallback", action = "Index" });
+            });
         }
     }
 }
